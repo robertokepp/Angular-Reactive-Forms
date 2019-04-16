@@ -1,0 +1,51 @@
+<form [formGroup]="profileForm">
+
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+    <p>Value:{{ profileForm.value.firstName }}</p>
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+    <p>Value:{{ profileForm.value.lastName }}</p>
+  </label>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSumit()">
+
+    <button type="sumit" [disabled]="!profileForm.valid">summit</button>
+
+    <div formGroupName="address">
+      <h3>Address</h3>
+    
+      <label>
+        Street:
+        <input type="text" formControlName="street">
+        <p>Value:{{ profileForm.value.address.street }}</p>
+      </label>
+    
+      <label>
+        City:
+        <input type="text" formControlName="city">
+        <p>Value:{{ profileForm.value.address.city }}</p>
+      </label>
+    
+      <label>
+        State:
+        <input type="text" formControlName="state">
+        <p>Value:{{ profileForm.value.address.state }}</p>
+      </label>
+    
+      <label>
+        Zip Code:
+        <input type="text" formControlName="zip">
+        <p>Value:{{ profileForm.value.address.zip }}</p>
+      </label>
+    </div>
+
+  <p>
+    <button (click)="updateProfile()">Update Profile</button>
+  </p>
+
+</form>
